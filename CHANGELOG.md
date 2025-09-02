@@ -2,6 +2,13 @@
 
 All notable changes to the "SeesTrees" extension will be documented in this file.
 
+## [0.1.4] - 2025-09-02
+
+### Changed
+- Refactored backend to break apart the monolithic file & avoid circular imports.
+- Improved tree rendering & glyph mapping.
+- Integrated Python backend with VS Code extension.
+
 ## [0.1.3] - 2025-09-01
 
 ### Added
