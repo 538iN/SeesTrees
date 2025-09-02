@@ -184,6 +184,15 @@ class FileTreeItem extends vscode.TreeItem {
     this.resourceUri = resourceUri;
     this.collapsibleState = collapsibleState;
     this.contextValue = fs.statSync(resourceUri.fsPath).isDirectory() ? 'folder' : 'file';
+
+    // Function to open the files in VSC editor
+    if (!fs.statSync(resourceUri.fsPath).isDirectory()) {
+      this.command = {
+        command: 'seestrees.openFile',
+        title: 'Open File',
+        arguments: [this.resourceUri]
+      };
+    }
     
     // Store parent environments for inheritance
     if (parentEnvs) {
@@ -988,12 +997,13 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('SeesTrees: Tree view refreshed');
 	});
   
+  
   const terminalTreeDisposable = vscode.commands.registerCommand('seestrees.showTreeInTerminal', () => {
     const workspaceRoot = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
     TerminalTreeVisualizer.showTreeInTerminal(workspaceRoot);
     vscode.window.showInformationMessage('SeesTrees: Directory tree displayed in terminal');
   });
-  
+
   // Power Grid toggle command
   const togglePowerGridDisposable = vscode.commands.registerCommand('seestrees.togglePowerGrid', () => {
     const config = vscode.workspace.getConfiguration('seestrees');
@@ -1059,12 +1069,17 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
+  const openFileDisposable = vscode.commands.registerCommand('seestrees.openFile', (resourceUri: vscode.Uri) => {
+    vscode.window.showTextDocument(resourceUri);
+  });
+
 	context.subscriptions.push(
     helloDisposable, 
     refreshDisposable, 
     terminalTreeDisposable,
     configureIgnoredPatternsDisposable,
-    togglePowerGridDisposable
+    togglePowerGridDisposable,
+    openFileDisposable
   );
 	
 	vscode.commands.executeCommand('seestrees.helloWorld');

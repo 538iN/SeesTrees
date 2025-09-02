@@ -2,6 +2,13 @@
 
 All notable changes to the "SeesTrees" extension will be documented in this file.
 
+## [0.1.3] - 2025-09-01
+
+### Added
+- Clicking files in the SeesTrees explorer now opens them in the editor
+- Registered `seestrees.openFile` command for file opening
+- Improved integration with VS Code explorer behavior
+
 ## [0.1.2] - 2025-05-18
 
 ### Added
