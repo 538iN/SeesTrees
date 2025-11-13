@@ -62,10 +62,18 @@
         "seestrees.ignoredPatterns": {
           "type": "array",
           "default": [
-            ".git", "__pycache__", "node_modules",
-            ".vscode", ".idea", ".DS_Store",
-            "venv", "env", "build", "dist", 
-            ".pyc", ".egg-info"
+            ".git",
+            "__pycache__",
+            "node_modules",
+            ".vscode",
+            ".idea",
+            ".DS_Store",
+            "venv",
+            "env",
+            "build",
+            "dist",
+            ".pyc",
+            ".egg-info"
           ],
           "description": "Files and folders to ignore when displaying the tree structure"
         },
@@ -76,21 +84,31 @@
         },
         "seestrees.powerGrid.glowIntensity": {
           "type": "string",
-          "enum": ["low", "medium", "high"],
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
           "default": "medium",
           "description": "Control the visual intensity of the power grid glow effect"
         },
         "seestrees.powerGrid.environmentTypes": {
           "type": "array",
           "default": [
-            "python", "node", "docker", "ruby", "go", "java", "php"
+            "python",
+            "node",
+            "docker",
+            "ruby",
+            "go",
+            "java",
+            "php"
           ],
           "description": "Environmental types to detect and visualize in the power grid"
         }
       }
     }
   },
-  "description": "Aesthetically visualize your project with colorful repository trees and emojis that provide assistance in enhancing any \"ground-up\" onboarding",
+  "description": "Understand through high-level aesthetics via colorful repository trees and emojis that aim to optimize \"ground-up\" onboarding",
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
@@ -99,6 +117,7 @@
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.0",
     "eslint": "^9.25.1",
     "typescript": "^5.8.3"
   },
@@ -106,14 +125,7 @@
   "engines": {
     "vscode": "^1.100.0"
   },
-  "files": [
-    "out",
-    "images",
-    "README.md",
-    "LICENSE",
-    "CHANGELOG.md"
-  ],
-  "homepage": "https://github.com/krdb11/sees-Trees#readme",
+  "homepage": "https://github.com/538iN/sees-Trees#readme",
   "icon": "images/holyTree.png",
   "license": "MIT",
   "main": "./out/extension.js",
@@ -121,7 +133,7 @@
   "publisher": "538iNdustries",
   "repository": {
     "type": "git",
-    "url": "https://github.com/krdb11/sees-Trees"
+    "url": "https://github.com/538iN/sees-Trees"
   },
   "scripts": {
     "compile": "tsc -p ./",
@@ -131,5 +143,5 @@
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -watch -p ./"
   },
-  "version": "0.1.4"
+  "version": "0.1.5"
 }
